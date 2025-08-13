@@ -1,0 +1,173 @@
+/* ============================================= */
+/* ESTILOS DEL HEADER REUTILIZABLE               */
+/* ============================================= */
+
+.main-header {
+  /* CAMBIO: Fondo blanco para un contraste limpio y profesional */
+  background-color: #FFFFFF;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Mantenemos una sombra sutil para dar profundidad sobre el contenido blanco */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-weight: 900;
+  /* CAMBIO: Color del logo a azul oscuro para que sea visible */
+  color: #243447;
+  text-decoration: none;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+/* --- ESTILOS MOBILE-FIRST (Menú de hamburguesa) --- */
+
+.header__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1010; 
+}
+
+.header__toggle span {
+  width: 100%;
+  height: 3px;
+  /* CAMBIO: Rayas de la hamburguesa a azul oscuro */
+  background-color: #243447;
+  border-radius: 5px;
+  transition: all 0.3s linear;
+}
+
+.header__toggle--active span:nth-child(1),
+.header__toggle--active span:nth-child(3) {
+    background-color: white; /* ¡LA SOLUCIÓN! */
+}
+
+.header__toggle--active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.header__toggle--active span:nth-child(2) {
+    opacity: 0;
+}
+
+.header__toggle--active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* El menú desplegable mantiene su fondo oscuro para un buen contraste del texto */
+.header__nav {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(36, 52, 71, 0.98);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+.header__nav--visible {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__menu {
+  list-style: none;
+  text-align: center;
+}
+
+/* El texto dentro del menú desplegable sigue siendo blanco */
+.header__link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: block;
+  padding: 1rem;
+  transition: color 0.3s ease;
+}
+
+.header__link:hover {
+  color: #C51F5D;
+}
+
+.header__link--cta {
+  background-color: #C51F5D;
+  color: white;
+  border-radius: 50px;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.header__link--cta:hover {
+  background-color: #ad1b52;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* --- MEJORA PROGRESIVA PARA TABLET Y DESKTOP --- */
+@media (min-width: 768px) {
+  .header__toggle {
+    display: none;
+  }
+
+  .header__nav {
+    display: block;
+    position: static;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+
+  .header__menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .header__link {
+    /* CAMBIO: Color de enlaces a azul oscuro en vista de escritorio */
+    color: #243447;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    font-weight: 500; /* Un poco menos de grosor para mejorar la legibilidad */
+  }
+
+  .header__link:hover {
+    /* El hover ahora será el color de acento rosa */
+    color: #C51F5D;
+  }
+  
+  /* El botón CTA se mantiene igual, ya tiene su propio fondo y contrasta bien */
+  .header__link--cta {
+    margin-top: 0;
+    padding: 0.5em 1.5em;
+    font-size: 1rem;
+    /* Le devolvemos el color blanco al texto por si acaso */
+    color: white; 
+  }
+  
+  .header__link--cta:hover{
+      color: white;
+  }
+}
