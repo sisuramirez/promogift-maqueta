@@ -1,0 +1,129 @@
+/* ============================================= */
+/* ESTILOS DEL FOOTER REUTILIZABLE (Mobile-First)*/
+/* ============================================= */
+
+.main-footer {
+  /* Usamos el azul oscuro del Hero para crear consistencia visual */
+  background-color: #243447;
+  /* Usamos el color de texto claro del Hero */
+  color: #e2e2d2; 
+  padding: 3rem 0 1.5rem 0; /* Más espacio arriba, menos abajo */
+  margin-top: 4rem; /* Un espacio generoso que separa el footer del contenido */
+  text-align: center; /* En móvil, todo el texto estará centrado */
+}
+
+/* Títulos y Logos */
+.footer__logo {
+  font-weight: 900;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer__description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 40ch; /* Evita que el texto sea demasiado ancho en pantallas intermedias */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.footer__title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Secciones (espaciado en móvil) */
+.footer__nav,
+.footer__social {
+  margin-bottom: 2rem;
+}
+
+/* Menús de enlaces */
+.footer__menu {
+  list-style: none; /* Quitamos los puntos de la lista */
+  padding: 0;
+  margin: 0;
+}
+
+.footer__menu li {
+  margin-bottom: 0.5rem;
+}
+
+.footer__link {
+  color: inherit; /* Hereda el color #e2e2d2 del padre */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #C51F5D; /* Usamos el color de acento para el hover */
+}
+
+/* Línea divisoria y Copyright */
+.footer__divider {
+  border: none;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 1.5rem auto;
+}
+
+.footer__bottom p {
+  font-size: 0.85rem;
+  opacity: 0.7; /* Hacemos el copyright un poco más sutil */
+}
+
+.footer__credit {
+  margin-top: 0.5rem; /* Pequeño espacio para separarlo del copyright */
+  font-size: 0.8rem;  /* Hacemos la letra un poco más pequeña */
+}
+
+.footer__credit a {
+  color: inherit; /* Hereda el color del texto del footer */
+  font-weight: 700; /* Le damos un poco más de peso al nombre de tu marca */
+  text-decoration: underline; /* Lo subrayamos para que se identifique como link */
+  text-underline-offset: 3px; /* Separa un poco el subrayado del texto */
+  transition: color 0.3s ease;
+}
+
+.footer__credit a:hover {
+  color: #FFFFFF; /* Al pasar el ratón, el enlace se vuelve blanco puro */
+}
+
+/* ========================================================= */
+/* MEJORA PROGRESIVA PARA TABLET Y DESKTOP                   */
+/* ========================================================= */
+
+@media (min-width: 768px) {
+  .main-footer {
+      text-align: left; /* Alineamos todo a la izquierda para el layout en columnas */
+  }
+  
+  .footer__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; /* Alinea los items al inicio del eje transversal */
+      gap: 2rem; /* Espacio entre las columnas */
+  }
+
+  .footer__brand-info {
+      flex: 2; /* Hacemos que la sección de la marca ocupe el doble que las otras */
+      margin-bottom: 0; /* Eliminamos el margen que era para la vista móvil */
+  }
+
+  .footer__description {
+      margin-left: 0;
+      margin-right: 0;
+  }
+
+  .footer__nav,
+  .footer__social {
+      flex: 1; /* Las columnas de navegación y redes sociales ocupan el mismo espacio */
+      margin-bottom: 0;
+  }
+
+  .footer__bottom {
+      text-align: center; /* Centramos de nuevo el texto del copyright */
+  }
+}
