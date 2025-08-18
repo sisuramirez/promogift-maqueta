@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (fabWhatsapp) {
       fabWhatsapp.addEventListener('click', function (event) {
           event.preventDefault();
-          const phoneNumber = '50248494290';
+          const phoneNumber = '502123456790';
           const message = "Hola, estoy interesado en rentar un vehículo y me gustaría más información.";
           const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
           window.open(whatsappUrl, '_blank');
