@@ -1,16 +1,11 @@
-/* ============================================= */
-/* ESTILOS DEL HEADER REUTILIZABLE               */
-/* ============================================= */
-
 .main-header {
-  /* CAMBIO: Fondo blanco para un contraste limpio y profesional */
   background-color: #FFFFFF;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  /* Mantenemos una sombra sutil para dar profundidad sobre el contenido blanco */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: padding 0.3s ease; /* Añadido para una transición suave */
 }
 
 .main-header .container {
@@ -20,15 +15,18 @@
 }
 
 .header__logo {
-  font-weight: 900;
-  /* CAMBIO: Color del logo a azul oscuro para que sea visible */
-  color: #243447;
   text-decoration: none;
-  font-size: 1.5rem;
   z-index: 10;
+  display: inline-block; 
+  line-height: 1;
 }
 
-/* --- ESTILOS MOBILE-FIRST (Menú de hamburguesa) --- */
+.header__logo-img {
+  height: 50px;
+  width: auto;
+  display: block;
+  transition: height 0.3s ease; /* Añadido para una transición suave */
+}
 
 .header__toggle {
   display: flex;
@@ -46,7 +44,6 @@
 .header__toggle span {
   width: 100%;
   height: 3px;
-  /* CAMBIO: Rayas de la hamburguesa a azul oscuro */
   background-color: #243447;
   border-radius: 5px;
   transition: all 0.3s linear;
@@ -54,7 +51,7 @@
 
 .header__toggle--active span:nth-child(1),
 .header__toggle--active span:nth-child(3) {
-    background-color: white; /* ¡LA SOLUCIÓN! */
+    background-color: white; 
 }
 
 .header__toggle--active span:nth-child(1) {
@@ -69,7 +66,6 @@
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* El menú desplegable mantiene su fondo oscuro para un buen contraste del texto */
 .header__nav {
   display: none;
   position: absolute;
@@ -93,7 +89,6 @@
   text-align: center;
 }
 
-/* El texto dentro del menú desplegable sigue siendo blanco */
 .header__link {
   color: white;
   text-decoration: none;
@@ -124,8 +119,17 @@
   transform: scale(1.05);
 }
 
-/* --- MEJORA PROGRESIVA PARA TABLET Y DESKTOP --- */
 @media (min-width: 768px) {
+  /* ¡CAMBIO 1! Reducimos el padding vertical del header en escritorio */
+  .main-header {
+    padding: 0.5rem 0;
+  }
+
+  /* ¡CAMBIO 2! Reducimos la altura del logo en escritorio */
+  .header__logo-img {
+      height: 60px;
+  }
+
   .header__toggle {
     display: none;
   }
@@ -146,24 +150,20 @@
   }
 
   .header__link {
-    /* CAMBIO: Color de enlaces a azul oscuro en vista de escritorio */
     color: #243447;
     font-size: 1rem;
     padding: 0.5rem 0;
-    font-weight: 500; /* Un poco menos de grosor para mejorar la legibilidad */
+    font-weight: 500;
   }
 
   .header__link:hover {
-    /* El hover ahora será el color de acento rosa */
     color: #C51F5D;
   }
   
-  /* El botón CTA se mantiene igual, ya tiene su propio fondo y contrasta bien */
   .header__link--cta {
     margin-top: 0;
     padding: 0.5em 1.5em;
     font-size: 1rem;
-    /* Le devolvemos el color blanco al texto por si acaso */
     color: white; 
   }
   

@@ -1,6 +1,3 @@
-/* ============================================= */
-/* 1. REGLAS GLOBALES Y CONFIGURACIÓN INICIAL    */
-/* ============================================= */
 *,
 *::before,
 *::after {
@@ -24,9 +21,6 @@ img {
     display: block;
 }
 
-/* ============================================= */
-/* 2. EL PATRÓN DEL CONTAINER                    */
-/* ============================================= */
 .container {
     width: 85%;
     max-width: 1100px;
@@ -34,9 +28,6 @@ img {
     margin-right: auto;
 }
 
-/* ============================================= */
-/* 3. DISEÑO DEL HERO                            */
-/* ============================================= */
 .hero-diagonal {
     position: relative;
     overflow: hidden;
@@ -73,28 +64,20 @@ img {
     transform: scale(1.05); background-color: #ad1b52;
 }
 
-/* ========================================================= */
-/* 4. ESTILOS DE COMPONENTES VISUALES (Collage, Tablet, Carrusel) */
-/* ========================================================= */
-
-/* --- Elementos de Tablet y Escritorio ocultos por defecto --- */
 .hero-tablet-image, .hero-collage {
     display: none;
 }
 
-/* --- NUEVOS ESTILOS: Carrusel Automático (VISTA MÓVIL) --- */
 .carousel-container {
     display: block;
     margin-top: 2.5rem;
 }
 
-/* La animación que mueve la "cinta" */
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
     100% {
-        /* Mueve el track la distancia exacta de la primera serie de imágenes */
         transform: translateX(calc(-200px * 5)); 
     }
 }
@@ -102,27 +85,25 @@ img {
 .carousel {
     max-width: 500px;
     margin: auto;
-    overflow: hidden; /* Oculta las imágenes que se salen */
-    /* Crea un degradado en los bordes para un efecto más suave */
+    overflow: hidden;
     -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
     mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
 }
 
-/* Pausar la animación al pasar el ratón por encima */
 .carousel:hover .carousel__track {
     animation-play-state: paused;
 }
 
 .carousel__track {
-    display: flex; /* La clave para poner los elementos en fila */
+    display: flex;
     list-style: none;
-    width: calc(200px * 10); /* Ancho total de TODAS las imágenes (originales + duplicadas) */
-    animation: scroll 30s linear infinite; /* Aplicamos la animación */
+    width: calc(200px * 10);
+    animation: scroll 30s linear infinite;
 }
 
 .carousel__slide {
-    width: 200px; /* Ancho de cada imagen individual */
-    flex-shrink: 0; /* Evita que las imágenes se encojan */
+    width: 200px;
+    flex-shrink: 0;
     padding: 0 10px;
 }
 .carousel__slide img {
@@ -131,12 +112,10 @@ img {
     padding: 0.5rem;
     width: 100%;
     height: auto;
-    aspect-ratio: 1/1; /* Asegura que sean cuadradas */
+    aspect-ratio: 1/1;
     object-fit: contain;
 }
 
-
-/* --- Estilos para la imagen de Tablet --- */
 .hero-tablet-image {
     position: absolute; z-index: 3; top: 50%; right: 5%; width: 35%;
     max-width: 350px; transform: translateY(-50%) rotate(8deg); pointer-events: none;
@@ -146,7 +125,6 @@ img {
     border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Estilos para el Collage de Escritorio --- */
 .hero-collage {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     z-index: 3; pointer-events: none;
@@ -175,14 +153,12 @@ img {
       transform: translateX(0);
   }
   100% {
-      /* Mueve el track la distancia exacta de la primera serie de logos (6 logos * 180px de ancho cada uno) */
       transform: translateX(calc(-180px * 6)); 
   }
 }
 
 .logo-carousel {
   overflow: hidden;
-  /* Efecto de desvanecido en los bordes para una mejor integración */
   -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
   mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
 }
@@ -192,14 +168,14 @@ img {
 }
 
 .logo-carousel__track {
-  display: flex; /* La clave para alinear los logos en una fila */
-  width: calc(180px * 12); /* Ancho total: 180px por logo * 12 logos (6 originales + 6 duplicados) */
-  animation: scroll-brands 20s linear infinite; /* Animación más rápida */
+  display: flex;
+  width: calc(180px * 12);
+  animation: scroll-brands 20s linear infinite;
 }
 
 .logo-carousel__slide {
   flex-shrink: 0;
-  width: 180px; /* Ancho fijo para cada logo */
+  width: 180px;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -207,11 +183,11 @@ img {
 }
 
 .logo-carousel__slide img {
-  height: 50px; /* Altura controlada para todos los logos */
+  height: 50px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  filter: grayscale(100%); /* Logos en escala de grises para uniformidad */
+  filter: grayscale(100%);
   opacity: 0.7;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
@@ -221,7 +197,6 @@ img {
   opacity: 1;
 }
 
-/* --- SECCIÓN NUESTROS PRODUCTOS --- */
 .our-products {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -246,11 +221,9 @@ img {
   overflow: hidden; 
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  
-  /* --- CAMBIOS PARA LA ANIMACIÓN (ESTADO INICIAL) --- */
-  opacity: 0; /* Inicialmente la tarjeta es invisible */
-  transform: translateY(30px); /* Inicialmente la tarjeta está 30px más abajo */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transición suave */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .product-card__image {
@@ -282,45 +255,38 @@ img {
   background-color: #2f4f4f;
 }
 
-
-/* ========================================================= */
-/* 5. NUEVAS REGLAS PARA LA ANIMACIÓN DE SCROLL              */
-/* ========================================================= */
-
-/* --- ESTADO FINAL (Cuando el script añade la clase .visible) --- */
 .product-card.visible {
-    opacity: 1; /* Hacemos la tarjeta visible */
-    transform: translateY(0); /* La movemos a su posición original */
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* --- EFECTO ESCALONADO (Para que no aparezcan todas a la vez) --- */
 .product-card:nth-child(2) { transition-delay: 0.1s; }
 .product-card:nth-child(3) { transition-delay: 0.2s; }
 .product-card:nth-child(4) { transition-delay: 0.3s; }
 
 .dynamic-banner-form {
-  padding: 40px 0; /* Espacio vertical */
-  background-color: #fff; /* Fondo blanco para la sección */
+  padding: 40px 0;
+  background-color: #fff;
 }
 
 .dynamic-banner-form .container {
   display: flex;
-  flex-direction: column; /* Apilado en móvil (Mobile First) */
-  gap: 30px; /* Espacio entre video y formulario */
+  flex-direction: column;
+  gap: 30px;
 }
 
 .dynamic-banner video {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 8px; /* Bordes redondeados para el video */
+  border-radius: 8px;
 }
 
 .contact-form {
   padding: 25px;
   background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form h2 {
@@ -345,12 +311,12 @@ img {
 
 .form-group input,
 .form-group textarea {
-  width: 100%; /* El box-sizing se encarga del padding */
+  width: 100%;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
-  box-sizing: border-box; /* Importante para que el padding no afecte el width */
+  box-sizing: border-box;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -369,7 +335,7 @@ img {
 .contact-form button {
   width: 100%;
   padding: 15px;
-  background-color: #e74c3c; /* Un color de acción llamativo */
+  background-color: #e74c3c;
   color: white;
   border: none;
   border-radius: 5px;
@@ -380,7 +346,7 @@ img {
 }
 
 .contact-form button:hover {
-  background-color: #c0392b; /* Tono más oscuro al pasar el mouse */
+  background-color: #c0392b;
 }
 
 .whatsapp-fab {
@@ -410,9 +376,6 @@ img {
   filter: brightness(0) invert(1);
 }
 
-
-
-
 @media (min-width: 768px) {
     .hero-diagonal { padding-bottom: 0; text-align: left; }
     .hero-diagonal .container { min-height: 100vh; display: flex; align-items: center; }
@@ -421,7 +384,6 @@ img {
     .hero-diagonal__title { font-size: 4.5rem; }
     .hero-diagonal__color-bg { clip-path: polygon(0 0, 60% 0, 45% 100%, 0% 100%); }
 
-    /* Control de visibilidad para TABLET */
     .carousel-container { display: none; }
     .hero-tablet-image { display: block; }
     .hero-collage { display: none; }
@@ -435,40 +397,34 @@ img {
       font-size: 2.5rem;
     }
 
-    /* --- REAJUSTE DEL RETRASO DE ANIMACIÓN PARA LA VISTA DE 2 COLUMNAS --- */
-    /* La primera fila (tarjetas 1 y 2) tienen el mismo retraso inicial */
     .product-card:nth-child(1) { transition-delay: 0.1s; }
     .product-card:nth-child(2) { transition-delay: 0.2s; } 
-    /* La segunda fila (tarjetas 3 y 4) empiezan un poco después */
     .product-card:nth-child(3) { transition-delay: 0.1s; }
     .product-card:nth-child(4) { transition-delay: 0.2s; }
 
-
     .dynamic-banner-form .container {
-      flex-direction: row; /* Elementos en fila */
-      align-items: center;  /* Centrar verticalmente */
+      flex-direction: row;
+      align-items: center;
       gap: 40px;
     }
   
     .dynamic-banner {
-      flex: 1; /* Ocupa la mitad del espacio */
+      flex: 1;
     }
   
     .contact-form {
-      flex: 1; /* Ocupa la otra mitad */
+      flex: 1;
     }
   
     .contact-form h2 {
-      text-align: left; /* Alinear a la izquierda en desktop */
+      text-align: left;
     }
 }
 
 @media (min-width: 1100px) {
-    /* Control de visibilidad para ESCRITORIO */
     .hero-tablet-image { display: none; }
     .hero-collage { display: block; }
 
-    /* Posiciones del collage desplazadas a la derecha */
     .collage-item--1 { top: 18%; left: 65%; width: 20%; transform: rotate(-8deg); }
     .collage-item--2 { top: 25%; right: 2%; width: 22%; transform: rotate(5deg); }
     .collage-item--3 { bottom: 20%; left: 68%; width: 15%; transform: rotate(10deg); background-color: #fce8e6; }
